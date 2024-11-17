@@ -1,5 +1,5 @@
 FROM adoptopenjdk/openjdk11:alpine-jre
 WORKDIR /opt/app
-ARG JAR_FILE=target/assignment-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE=target/examples-0.0.1-SNAPSHOT.jar
 COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java","-Denv_var=test","-jar","app.jar"]

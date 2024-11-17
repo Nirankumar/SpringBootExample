@@ -1,8 +1,8 @@
-package com.intel.assignment.service;
+package com.springboot.examples.service;
 
 import java.util.List;
 
-import com.intel.assignment.model.IPInfo;
+import com.springboot.examples.model.IPInfo;
 
 public interface IPService {
 	Long addIp(IPInfo ip);

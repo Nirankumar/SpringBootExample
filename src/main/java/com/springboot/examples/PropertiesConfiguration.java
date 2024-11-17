@@ -1,4 +1,4 @@
-package com.intel.assignment;
+package com.springboot.examples;
 
 import javax.annotation.PostConstruct;
 

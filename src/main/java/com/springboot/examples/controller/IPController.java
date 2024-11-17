@@ -1,4 +1,4 @@
-package com.intel.assignment.controller;
+package com.springboot.examples.controller;
 
 /**
  * Controller class to perform CRUD operations on IP Addresses
@@ -28,9 +28,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.intel.assignment.model.IPInfo;
-import com.intel.assignment.model.Result;
-import com.intel.assignment.service.IPService;
+import com.springboot.examples.model.IPInfo;
+import com.springboot.examples.model.Result;
+import com.springboot.examples.service.IPService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;

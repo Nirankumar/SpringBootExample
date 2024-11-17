@@ -1,4 +1,4 @@
-package com.intel.assignment.controller;
+package com.springboot.examples.controller;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -19,8 +19,8 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.intel.assignment.model.IPInfo;
-import com.intel.assignment.model.Result;
+import com.springboot.examples.model.IPInfo;
+import com.springboot.examples.model.Result;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(properties = "env_var=test")

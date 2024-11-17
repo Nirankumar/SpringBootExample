@@ -1,4 +1,4 @@
-package com.intel.assignment.service;
+package com.springboot.examples.service;
 
 /**
  * Service class connect to Repo and perform DB operations 
@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
-import com.intel.assignment.data.IPRepository;
-import com.intel.assignment.model.IPInfo;
+import com.springboot.examples.data.IPRepository;
+import com.springboot.examples.model.IPInfo;
 
 import lombok.extern.slf4j.Slf4j;
 

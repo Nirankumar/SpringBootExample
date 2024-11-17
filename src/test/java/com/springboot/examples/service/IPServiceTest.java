@@ -1,4 +1,4 @@
-package com.intel.assignment.service;
+package com.springboot.examples.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +9,10 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.test.util.ReflectionTestUtils;
 
-import com.intel.assignment.data.IPRepository;
-import com.intel.assignment.model.IPInfo;
+import com.springboot.examples.data.IPRepository;
+import com.springboot.examples.model.IPInfo;
+import com.springboot.examples.service.IPService;
+import com.springboot.examples.service.IPServiceImpl;
 
 class IPServiceTest {
 	private IPService ipservice;

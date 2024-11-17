@@ -1,10 +1,10 @@
-package com.intel.assignment.data;
+package com.springboot.examples.data;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.intel.assignment.model.IPInfo;
+import com.springboot.examples.model.IPInfo;
 /**
  * 
  * @author Niran

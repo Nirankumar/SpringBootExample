@@ -1,4 +1,4 @@
-package com.intel.assignment.model;
+package com.springboot.examples.model;
 
 import java.time.LocalDateTime;
 
