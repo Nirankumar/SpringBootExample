@@ -14,9 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.support.SendResult;
-import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -24,7 +21,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,9 +38,6 @@ public class IPController {
 	@Autowired
 	private IPService ipservice;
 	
-	@Autowired
-	private KafkaTemplate<String, String> kafkaTemplate;
-	
 	@PostMapping("/ip-address")
 	@Operation(summary = "Add new IP information")
     public ResponseEntity<Result<String>> addIp(@Valid @RequestBody IPInfo ip) {
@@ -61,28 +54,6 @@ public class IPController {
 			return new ResponseEntity<>(result, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
     }
-	
-	@GetMapping("/kafka/send")
-	@Operation(summary = "Send Kafka Message")
-	public String sendMessage(@RequestParam("message") String msg) {
-		try {
-			ListenableFuture<SendResult<String, String>> future = kafkaTemplate.send("quickstart-events", msg);
-		    future.completable().whenComplete((result, ex) -> {
-		        if (ex == null) {
-		            System.out.println("Sent message=[" + msg + 
-		                 "] with offset=[" + result.getRecordMetadata().offset() + "]");
-		        } else {
-		            System.out.println("Unable to send message=[" + 
-		                msg + "] due to : " + ex.getMessage());
-		        }
-		    });
-            return "Sent message=[" + msg + "]";
-		} catch (Exception ex) {
-			log.warn("Exception occurred while searching IP",ex);
-			return "Message sending failed";
-		}
-	}
-	
 	
 	@GetMapping("/ip-addresses/{ip-value}")
 	@Operation(summary = "Retrieve the IP Information based on value")
