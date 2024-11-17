@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.springboot.examples.event.ExampleEventPublisher;
+
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,6 +20,9 @@ public class KafkaTopicController {
 	@Autowired
 	private KafkaTemplate<String, String> kafkaTemplate;
 	
+	@Autowired
+	private ExampleEventPublisher eventPublisher;
+	
 	@GetMapping("/kafka/send")
 	@Operation(summary = "Send Kafka Message")
 	public String sendMessage(@RequestParam("message") String msg) {
@@ -27,6 +32,7 @@ public class KafkaTopicController {
 		        if (ex == null) {
 		            log.info("Sent message=[" + msg + 
 		                 "] with offset=[" + result.getRecordMetadata().offset() + "]");
+		            eventPublisher.publishEvent(msg);
 		        } else {
 		            log.info("Unable to send message=[" + 
 		                msg + "] due to : " + ex.getMessage());
