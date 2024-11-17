@@ -1,4 +1,4 @@
-# Coding Assignment for INTEL
+# Coding Examples for Spring Boot
 
 This document follows [RFC2119](https://www.ietf.org/rfc/rfc2119.txt) notation.
 
